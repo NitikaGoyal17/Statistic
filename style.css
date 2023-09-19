@@ -1,0 +1,327 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    width: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #42A7A1;
+    color: #333;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center .card {
+    height: 240px;
+    width: 280px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 8px 8px 23px -9px rgba(57, 57, 57, 0.86);
+}
+
+.center .card .card-header {
+    height: 65px;
+    background: #F1BA64;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 0.4;
+    padding: 0 0.7rem;
+}
+
+.center .card .card-header .date,
+.center .card .card-header .revenue {
+    color: #fff;
+}
+
+.center .card .card-header .revenue {
+    text-align: end;
+}
+
+.center .card .card-header h2 {
+    font-size: 0.9rem;
+}
+
+.center .card .card-header p {
+    font-size: 0.7rem;
+}
+
+.center .card .card-body {
+    height: 300px;
+    background: #fff;
+}
+
+.center .card .card-body .hints {
+    text-align: end;
+    padding: 0.9rem 0.4rem;
+    display: flex;
+    justify-content: right;
+    gap: 1.5rem;
+}
+
+.center .card .card-body .hints span {
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.center .card .card-body .hints span .bar {
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+.center .card .card-body .hints .blue .bar {
+    background: #7BA2FF;
+}
+
+.center .card .card-body .hints .red .bar {
+    background: #FA7373;
+}
+
+.center .card .card-body .graph {
+    position: relative;
+    width: 80%;
+    height: 81px;
+    margin: 0 auto;
+    margin-bottom: 0.6rem;
+}
+
+.center .card .card-body .graph .line-1,
+.center .card .card-body .graph .line-2,
+.center .card .card-body .graph .line-3 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #f2f2f2;
+    top: 0;
+}
+
+.center .card .card-body .graph .line-2 {
+    top: 40px;
+}
+
+.center .card .card-body .graph .line-3 {
+    top: 80px;
+    bottom: 0;
+}
+
+.center .card .card-body .graph svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.center .card .card-body .graph polyline {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.center .card .card-body .graph {
+    position: relative;
+    height: 81px;
+    width: 260px;
+    margin: 0 auto;
+}
+
+.center .card .card-body .graph .line-1,
+.center .card .card-body .graph .line-2,
+.center .card .card-body .graph .line-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #F2F2F2;
+}
+
+.center .card .card-body .graph .line-2 {
+    top: 40px;
+}
+
+.center .card .card-body .graph .line-3 {
+    top: inherit;
+    bottom: 0;
+}
+
+.center .card .card-body .graph .data svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.center .card .card-body .graph .data polyline {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.center .card .card-body .graph .data .red polyline {
+    stroke: #FA7373;
+}
+
+.center .card .card-body .graph .data .red polyline {
+    stroke: #7BA2FF;
+}
+
+
+.center .card .card-body .graph .data .tooltip {
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    transform: translate3d(-50%, 10px, 0);
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 11px;
+    color: #fff;
+    padding: 8px 6px;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.4s ease-out 0s, opacity 0.4s ease-out 0s;
+}
+
+.center .card .card-body .graph .data .tooltip:after {
+    position: absolute;
+    display: block;
+    content: "";
+    height: 6px;
+    width: 6px;
+    left: 50%;
+    margin-left: -3px;
+    bottom: -3px;
+    transform: rotate(45deg);
+}
+
+.center .card .card-body .graph .data [class^=point-] {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.center .card .card-body .graph .data [class^=point-]:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.center .card .card-body .graph .data.red [class^=point-],
+.center .card .card-body .graph .data.red .tooltip,
+.center .card .card-body .graph .data.red .tooltip:after {
+    background: #FA7373;
+
+}
+
+.center .card .card-body .graph .data.red .point-1 {
+    left: 7px;
+    top: 43px;
+}
+
+.center .card .card-body .graph .data.red .point-2 {
+    left: 48px;
+    top: 9px;
+}
+
+.center .card .card-body .graph .data.red .point-3 {
+    left: 88px;
+    top: 20px;
+}
+
+.center .card .card-body .graph .data.red .point-4 {
+    left: 128px;
+    top: 8px;
+}
+
+.center .card .card-body .graph .data.red .point-5 {
+    left: 169px;
+    top: 35px;
+}
+
+.center .card .card-body .graph .data.red .point-6 {
+    left: 209px;
+    top: 45px;
+}
+
+.center .card .card-body .graph .data.red .point-7 {
+    left: 249px;
+    top: 16px;
+}
+
+.center .card .card-body .graph .data.blue [class^=point-],
+.center .card .card-body .graph .data.blue .tooltip,
+.center .card .card-body .graph .data.blue .tooltip:after {
+    background: #7BA2FF;
+
+}
+
+.center .card .card-body .graph .data.blue .point-1 {
+    left: 7px;
+    top: 58px;
+}
+
+.center .card .card-body .graph .data.blue .point-2 {
+    left: 48px;
+    top: 47px;
+}
+
+.center .card .card-body .graph .data.blue .point-3 {
+    left: 88px;
+    top: 62px;
+}
+
+.point-4 {
+    left: 128px;
+    top: 52px;
+}
+
+.center .card .card-body .graph .data.blue .point-5 {
+    left: 169px;
+    top: 58px;
+}
+
+.center .card .card-body .graph .data.blue .point-6 {
+    left: 209px;
+    top: 71px;
+}
+
+.center .card .card-body .graph .data.blue .point-7 {
+    left: 249px;
+    top: 61px;
+}
+
+.center .card .card-body .days {
+    width: 280px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.center .card .card-body .days .day {
+    display: block;
+    float: left;
+    width: 14.2857142857%;
+    text-align: center;
+}
